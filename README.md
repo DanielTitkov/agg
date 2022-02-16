@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![test workflow](https://github.com/DanielTitkov/aggr/actions/workflows/test.yaml/badge.svg)
 
-Small Go package for making aggregation over slice on any objects by date with user-provided functions.
+Small Go package for making aggregations over slice on any objects by date with user-provided functions (this approach is similar to sort.Slice, etc.)
 
 ## Usage
 
@@ -58,15 +58,13 @@ func main() {
 		},
 		func(toMerge []int, i int, d time.Time) {
 			merged := item{
-				Merged: true,
-				Date:   d,
+				Date:   d,    // ByDate sends in date which is the begining of the corresponding period
+				Merged: true, // here we can as well modify various field of the item
 			}
-
 			// combine all values of items being merged
 			for _, j := range toMerge {
 				merged.Value += data[j].Value
 			}
-
 			// writing merged item to ith position
 			data[i] = merged
 		},
