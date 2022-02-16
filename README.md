@@ -1,7 +1,8 @@
 # agg
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![test workflow](https://github.com/DanielTitkov/agg/actions/workflows/test.yaml/badge.svg)
 
-Little Go package for making aggregation over slice on any objects by date with user-provided functions.
+Small Go package for making aggregation over slice on any objects by date with user-provided functions.
 
 ## Usage
 
@@ -9,7 +10,7 @@ Little Go package for making aggregation over slice on any objects by date with 
 
 The date which ByDate sends back to merge function represent the start of the time period (day, week or month) to which items to be aggregated are assinged. 
 
-See more in example.
+See more in the example.
 
 ## Example
 
