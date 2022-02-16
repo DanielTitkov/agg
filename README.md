@@ -1,12 +1,12 @@
-# agg
+# aggr
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-![test workflow](https://github.com/DanielTitkov/agg/actions/workflows/test.yaml/badge.svg)
+![test workflow](https://github.com/DanielTitkov/aggr/actions/workflows/test.yaml/badge.svg)
 
 Small Go package for making aggregation over slice on any objects by date with user-provided functions.
 
 ## Usage
 
-**agg.ByDate** encapsulated logic for aggregation by date. In order for it to be able to do in user needs to provide functions to get date from aggregated items and also to merge any number of items to aggregated result. Function returns the number **N** of aggregated result items. After applying ByDate function slice will be sorted by date. First **N** positions will be occupied with aggregated items. As soon as number of aggregated results is always less or equal to lenght of initial slice some posisions may be occupied with unaggregated items. In order to get slice on only aggregated results you need to cut it up to **N**: `data = data[:N]`.
+**aggr.ByDate** encapsulated logic for aggregation by date. In order for it to be able to do in user needs to provide functions to get date from aggregated items and also to merge any number of items to aggregated result. Function returns the number **N** of aggregated result items. After applying ByDate function slice will be sorted by date. First **N** positions will be occupied with aggregated items. As soon as number of aggregated results is always less or equal to lenght of initial slice some posisions may be occupied with unaggregated items. In order to get slice on only aggregated results you need to cut it up to **N**: `data = data[:N]`.
 
 The date which ByDate sends back to merge function represent the start of the time period (day, week or month) to which items to be aggregated are assinged. 
 
@@ -49,9 +49,9 @@ func main() {
 		},
 	}
 
-	i := agg.ByDate(
+	i := aggr.ByDate(
 		data,
-		agg.Day,
+		aggr.Day,
 		func(i int) time.Time {
 			// getting date as time.Time from item
 			return data[i].Date

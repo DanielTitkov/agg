@@ -4,7 +4,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/DanielTitkov/agg"
+	"github.com/DanielTitkov/aggr"
 )
 
 type item struct {
@@ -41,9 +41,9 @@ func main() {
 		},
 	}
 
-	i := agg.ByDate(
+	i := aggr.ByDate(
 		data,
-		agg.Day,
+		aggr.Day,
 		func(i int) time.Time {
 			// getting date as time.Time from item
 			return data[i].Date

@@ -1,4 +1,4 @@
-module github.com/DanielTitkov/agg
+module github.com/DanielTitkov/aggr
 
 go 1.16
 
