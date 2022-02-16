@@ -17,27 +17,27 @@ func main() {
 	data := []item{
 		{
 			Value: 1,
-			Date:  time.Now().AddDate(0, 0, -2),
+			Date:  time.Now().AddDate(0, 0, -2), // 2 days ago
 		},
 		{
 			Value: 1,
-			Date:  time.Now().AddDate(0, 0, -2),
+			Date:  time.Now().AddDate(0, 0, -2), // also 2 days ago
 		},
 		{
 			Value: 2,
-			Date:  time.Now().AddDate(0, 0, -1),
+			Date:  time.Now().AddDate(0, 0, -1), // yesterday
 		},
 		{
 			Value: 2,
-			Date:  time.Now().AddDate(0, 0, -1),
+			Date:  time.Now().AddDate(0, 0, -1), // also yesterday
 		},
 		{
 			Value: 3,
-			Date:  time.Now(),
+			Date:  time.Now(), // today
 		},
 		{
 			Value: 3,
-			Date:  time.Now(),
+			Date:  time.Now(), // also today
 		},
 	}
 
