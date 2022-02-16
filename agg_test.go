@@ -170,7 +170,7 @@ func TestByDate(t *testing.T) {
 				// writing merged item to ith position
 				data[i] = merged
 			},
-			time.UTC,
+			tc.loc,
 		)
 		data = data[:ln]
 

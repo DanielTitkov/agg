@@ -14,8 +14,6 @@ type item struct {
 }
 
 func main() {
-	log.Println("Running example")
-
 	data := []item{
 		{
 			Value: 1,
@@ -45,7 +43,7 @@ func main() {
 
 	i := agg.ByDate(
 		data,
-		11,
+		agg.Day,
 		func(i int) time.Time {
 			// getting date as time.Time from item
 			return data[i].Date
@@ -67,7 +65,10 @@ func main() {
 		time.UTC,
 	)
 
+	// Now we need to slice the result to keep only aggregated values.
+	// This is important because ByDate is not able
+	// to remove not-aggregated items from slice.
 	data = data[:i]
 
-	log.Println("Result:", data)
+	log.Printf("Result: %+v", data)
 }
