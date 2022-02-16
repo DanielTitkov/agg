@@ -1,5 +1,5 @@
 name: Test
-on: [push, pull_request, tags]
+on: [push, pull_request]
 
 jobs:
   # lint code with golangci-lint using built-in action
