@@ -50,8 +50,10 @@ func main() {
 		},
 		func(toMerge []int, i int, d time.Time) {
 			merged := item{
-				Date:   d,    // ByDate sends in date which is the begining of the corresponding period
-				Merged: true, // here we can as well modify various field of the item
+				// ByDate sends in the begining of the corresponding period
+				Date: d,
+				// here we can as well modify various field of the item
+				Merged: true,
 			}
 			// combine all values of items being merged
 			for _, j := range toMerge {

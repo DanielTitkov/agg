@@ -12,7 +12,7 @@ go get github.com/DanielTitkov/aggr
 
 ## Usage
 
-**aggr.ByDate** encapsulated logic for aggregation by date. In order for it to be able to do in user needs to provide functions to get date from aggregated items and also to merge any number of items to aggregated result. Function returns the number **N** of aggregated result items. After applying ByDate function slice will be sorted by date. First **N** positions will be occupied with aggregated items. As soon as number of aggregated results is always less or equal to lenght of initial slice some posisions may be occupied with unaggregated items. In order to get slice on only aggregated results you need to cut it up to **N**: `data = data[:N]`.
+**aggr.ByDate** encapsulates logic for aggregation by date. In order for it to be able to do in user needs to provide functions to get date from aggregated items and also to merge any number of items to aggregated result. Function returns the number **N** of aggregated result items. After applying ByDate function slice will be sorted by date. First **N** positions will be occupied with aggregated items. As soon as number of aggregated results is always less or equal to lenght of initial slice some posisions may be occupied with unaggregated items. In order to get slice on only aggregated results you need to cut it up to **N**: `data = data[:N]`.
 
 The date which ByDate sends back to merge function represent the start of the time period (day, week or month) to which items to be aggregated are assinged. 
 
@@ -64,8 +64,10 @@ func main() {
 		},
 		func(toMerge []int, i int, d time.Time) {
 			merged := item{
-				Date:   d,    // ByDate sends in date which is the begining of the corresponding period
-				Merged: true, // here we can as well modify various field of the item
+				// ByDate sends in the begining of the corresponding period
+				Date: d,
+				// here we can as well modify various field of the item
+				Merged: true,
 			}
 			// combine all values of items being merged
 			for _, j := range toMerge {
@@ -83,7 +85,6 @@ func main() {
 	data = data[:i]
 
 	log.Printf("Result: %+v", data)
-}
 ```
 
 This example with print something like following:
