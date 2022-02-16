@@ -66,7 +66,7 @@ func main() {
 			merged := item{
 				// ByDate sends in the begining of the corresponding period
 				Date: d,
-				// here we can as well modify various field of the item
+				// here we can as well modify various fields of the item
 				Merged: true,
 			}
 			// combine all values of items being merged
